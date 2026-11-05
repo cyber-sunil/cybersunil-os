@@ -110,7 +110,7 @@ The script will automate:
 6. Click **Start**!
 7. Once on the desktop, double click **"Install CyberSunil OS"** to permanently install it to your virtual disk.
 
-*For full instructions, read [VIRTUALBOX_GUIDE.md](file:///C:/Users/Cyber%20Sunil/.gemini/antigravity/scratch/cybersunil-os/test/VIRTUALBOX_GUIDE.md).*
+*For full instructions, read [VIRTUALBOX_GUIDE.md](file:///D:/CyberSunil-OS/test/VIRTUALBOX_GUIDE.md).*
 
 ---
 
