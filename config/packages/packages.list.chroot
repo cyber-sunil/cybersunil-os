@@ -3,6 +3,11 @@
 # Base: Debian 12 (Bookworm) x86_64
 # ==============================================================================
 
+# Hacker Boot Splash (Plymouth)
+plymouth
+plymouth-themes
+plymouth-x11
+
 # Linux Kernel & Hardware Firmware
 linux-image-amd64
 live-boot

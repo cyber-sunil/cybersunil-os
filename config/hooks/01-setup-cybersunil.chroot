@@ -62,4 +62,22 @@ autologin-user-timeout=0
 user-session=xfce
 EOF
 
+# 9. Install & Activate Plymouth Hacker Boot Splash Theme
+mkdir -p /usr/share/plymouth/themes/cybersunil-hacker
+cp -r /tmp/config/plymouth/cybersunil-hacker/* /usr/share/plymouth/themes/cybersunil-hacker/
+if command -v plymouth-set-default-theme >/dev/null 2>&1; then
+    plymouth-set-default-theme cybersunil-hacker
+    update-initramfs -u
+fi
+
+# 10. Install Hacker Terminal Greeting & Diagnostic Prompt
+cp /tmp/config/desktop/theme/hacker-motd.sh /etc/profile.d/cybersunil-hacker.sh
+chmod +x /etc/profile.d/cybersunil-hacker.sh
+
+# Configure custom hacker bash prompt
+cat << 'EOF' >> /etc/bash.bashrc
+# CyberSunil OS - Hacker Neon Terminal Prompt
+PS1='\[\e[1;32m\]┌──(\[\e[1;36m\]\u@matrix\[\e[1;32m\])-[\[\e[1;37m\]\w\[\e[1;32m\]]\n\[\e[1;32m\]└─\[\e[1;36m\]#\[\e[0m\] '
+EOF
+
 echo "=== [CyberSunil OS] Customizations Applied Successfully ==="

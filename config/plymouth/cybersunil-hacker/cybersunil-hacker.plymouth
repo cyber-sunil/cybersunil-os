@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=CyberSunil Hacker
+Description=Cyberpunk Matrix Hacker Boot Splash for CyberSunil OS
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/cybersunil-hacker
+ScriptFile=/usr/share/plymouth/themes/cybersunil-hacker/cybersunil-hacker.script

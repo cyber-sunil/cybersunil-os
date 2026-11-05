@@ -45,10 +45,22 @@ xdg-mime default cybersunil-wine-launcher.desktop application/x-ms-dos-executabl
 xdg-mime default cybersunil-wine-launcher.desktop application/x-msi
 xdg-mime default cybersunil-wine-launcher.desktop application/x-msdownload
 
-echo "[+] 5/5: Applying CyberSunil OS Branding..."
+echo "[+] 5/5: Applying CyberSunil OS Branding & Hacker Boot Screen..."
 mkdir -p /usr/share/backgrounds/cybersunil
 cp "$SCRIPT_DIR/config/desktop/theme/wallpaper.svg" /usr/share/backgrounds/cybersunil/wallpaper.svg 2>/dev/null || true
 cp "$SCRIPT_DIR/config/desktop/theme/os-release" /etc/os-release 2>/dev/null || true
+
+# Hacker Plymouth Theme
+mkdir -p /usr/share/plymouth/themes/cybersunil-hacker
+cp -r "$SCRIPT_DIR"/config/plymouth/cybersunil-hacker/* /usr/share/plymouth/themes/cybersunil-hacker/ 2>/dev/null || true
+if command -v plymouth-set-default-theme >/dev/null 2>&1; then
+    plymouth-set-default-theme cybersunil-hacker || true
+    update-initramfs -u || true
+fi
+
+# Hacker MOTD & Bash Prompt
+cp "$SCRIPT_DIR/config/desktop/theme/hacker-motd.sh" /etc/profile.d/cybersunil-hacker.sh 2>/dev/null || true
+chmod +x /etc/profile.d/cybersunil-hacker.sh 2>/dev/null || true
 
 echo "=========================================================="
 echo " [SUCCESS] CyberSunil OS Windows Bridge is Ready!"

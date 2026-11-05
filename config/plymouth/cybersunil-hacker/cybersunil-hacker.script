@@ -1,0 +1,56 @@
+# ==============================================================================
+# CyberSunil OS - Plymouth Hacker Boot Splash Script
+# ==============================================================================
+
+# Screen dimensions
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+# Load and scale background
+bg_image = Image("background.png");
+scaled_bg = bg_image.Scale(screen_width, screen_height);
+bg_sprite = Sprite(scaled_bg);
+bg_sprite.SetPosition(0, 0, 0);
+
+# Progress Bar Dimensions
+bar_width = screen_width * 0.45;
+bar_height = 10;
+bar_x = (screen_width - bar_width) / 2;
+bar_y = screen_height * 0.88;
+
+# Outline box for progress bar
+outline_box = Image.Box(bar_width + 4, bar_height + 4, 0.05, 0.15, 0.25, 0.8);
+outline_sprite = Sprite(outline_box);
+outline_sprite.SetPosition(bar_x - 2, bar_y - 2, 10);
+
+# Status Text Message
+message_sprite = Sprite();
+message_sprite.SetPosition(bar_x, bar_y - 30, 20);
+
+fun message_callback (text) {
+    if (text) {
+        msg_image = Image.Text("[ SYSTEM ] " + text, 0, 0.95, 0.6, 1, "monospace 11");
+        message_sprite.SetImage(msg_image);
+    }
+}
+Plymouth.SetUpdateStatusFunction(message_callback);
+
+# Boot Progress Callback
+progress_sprite = Sprite();
+
+fun boot_progress_callback (duration, progress) {
+    current_w = bar_width * progress;
+    if (current_w > 0) {
+        bar_fill = Image.Box(current_w, bar_height, 0, 0.95, 1, 1);
+        progress_sprite.SetImage(bar_fill);
+        progress_sprite.SetPosition(bar_x, bar_y, 15);
+    }
+}
+Plymouth.SetBootProgressFunction(boot_progress_callback);
+
+# Quit callback
+fun quit_callback () {
+    # Fade out smoothly when transitioning to XFCE / LightDM
+    bg_sprite.SetOpacity(0);
+}
+Plymouth.SetQuitFunction(quit_callback);
