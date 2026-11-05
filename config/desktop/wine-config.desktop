@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Wine Configuration
+Comment=Configure Windows compatibility settings, audio, drives, and libraries
+Exec=winecfg
+Icon=wine
+Terminal=false
+Categories=Settings;System;
+StartupNotify=true

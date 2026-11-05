@@ -1,0 +1,91 @@
+# ==============================================================================
+# CyberSunil OS - Package Manifest
+# Base: Debian 12 (Bookworm) x86_64
+# ==============================================================================
+
+# Linux Kernel & Hardware Firmware
+linux-image-amd64
+live-boot
+live-config
+live-config-systemd
+systemd-sysv
+grub-efi-amd64-signed
+grub-pc-bin
+shim-signed
+firmware-linux-free
+
+# Networking & Connectivity
+network-manager
+network-manager-gnome
+wireless-tools
+wpasupplicant
+iproute2
+iputils-ping
+curl
+wget
+net-tools
+
+# Desktop Environment (XFCE4 Modern Suite)
+xfce4
+xfce4-goodies
+xfce4-terminal
+lightdm
+lightdm-gtk-greeter
+xorg
+xserver-xorg
+xinit
+dbus-x11
+desktop-base
+
+# File Management & Archive Handlers
+thunar
+thunar-archive-plugin
+thunar-volman
+file-roller
+xarchiver
+p7zip-full
+unzip
+zip
+cabextract
+
+# Audio & Media
+pulseaudio
+pavucontrol
+alsa-utils
+libasound2
+libasound2:i386
+
+# System Tools, Shell & Utilities
+sudo
+htop
+neofetch
+nano
+vim-tiny
+mousepad
+gparted
+parted
+dosfstools
+ntfs-3g
+btrfs-progs
+exfat-fuse
+binfmt-support
+xdg-utils
+zenity
+
+# Windows .EXE Execution Compatibility (Wine + Vulkan + Multiarch)
+wine
+wine32:i386
+wine64
+winetricks
+libwine
+libwine:i386
+mesa-vulkan-drivers
+mesa-vulkan-drivers:i386
+vulkan-tools
+
+# Graphical System Installer (Calamares)
+calamares
+calamares-settings-debian
+
+# Productivity & Web
+firefox-esr

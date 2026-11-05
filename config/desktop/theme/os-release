@@ -1,0 +1,11 @@
+NAME="CyberSunil OS"
+PRETTY_NAME="CyberSunil OS 1.0 (Genesis)"
+ID=cybersunil
+ID_LIKE=debian
+VERSION_ID="1.0"
+VERSION="1.0 (Genesis)"
+VERSION_CODENAME=genesis
+HOME_URL="https://github.com/cybersunil/cybersunil-os"
+SUPPORT_URL="https://github.com/cybersunil/cybersunil-os"
+BUG_REPORT_URL="https://github.com/cybersunil/cybersunil-os/issues"
+LOGO=cybersunil-logo

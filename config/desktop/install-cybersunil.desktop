@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Install CyberSunil OS
+Comment=Install CyberSunil OS to VirtualBox or Hard Drive
+Exec=sudo -E calamares
+Icon=system-software-install
+Terminal=false
+Categories=System;
+StartupNotify=true

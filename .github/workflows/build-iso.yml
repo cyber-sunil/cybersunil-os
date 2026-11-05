@@ -1,0 +1,45 @@
+name: Build CyberSunil OS Bootable ISO
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build CyberSunil-OS-1.0-amd64.iso
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Free up disk space on runner
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+
+      - name: Install ISO build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y debootstrap squashfs-tools xorriso isolinux syslinux-efi mtools dosfstools grub-pc-bin grub-efi-amd64-bin
+
+      - name: Run CyberSunil OS Build Script
+        run: |
+          chmod +x build.sh
+          sudo ./build.sh
+
+      - name: Upload ISO as Workflow Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CyberSunil-OS-1.0-amd64-ISO
+          path: CyberSunil-OS-*.iso
+          retention-days: 14
+
+      - name: Create GitHub Release (Optional Tagged Release)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: CyberSunil-OS-*.iso
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

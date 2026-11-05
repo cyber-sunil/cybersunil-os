@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=CyberSunil Windows Bridge (Wine)
+Comment=Run Windows Executable (.exe / .msi) on CyberSunil OS
+Exec=/usr/local/bin/cybersunil-wine-launcher %f
+Icon=wine
+Terminal=false
+Categories=System;Utility;
+MimeType=application/x-ms-dos-executable;application/x-msi;application/x-msdownload;application/x-wine-extension-msp;
+NoDisplay=false
+StartupNotify=true
